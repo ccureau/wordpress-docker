@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  mariadb:
+    image: mariadb
+    env_file: mariadb.env
+    hostname: wordpress-mariadb
+    networks:
+      - wordpress
+    volumes:
+      - mariadb:/var/lib/mysql
+
+networks:
+  wordpress:
+    driver: bridge
+
+volumes:
+  mariadb:
